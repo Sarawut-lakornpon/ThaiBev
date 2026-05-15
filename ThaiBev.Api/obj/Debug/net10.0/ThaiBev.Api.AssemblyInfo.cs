@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThaiBev.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54b268e95a197dd3f1a5b8c3ba7c7762e1306b8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThaiBev.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThaiBev.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

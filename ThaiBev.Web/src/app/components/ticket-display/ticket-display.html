@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Your Ticket</h1>
-  <p class="subtitle">IT 05-2</p>
-  
+  <h1>หมายเลขคิว</h1>
+  <!-- <p class="subtitle">IT 05-2</p> -->
+
   <div class="ticket-display-number">
     {{ ticketNumber }}
   </div>
@@ -9,8 +9,8 @@
   <div class="ticket-date" *ngIf="issuedAt">
     วันที่ : {{ issuedAt | date:'dd/MM/yyyy' }} เวลา {{ issuedAt | date:'HH:mm' }} น.
   </div>
-  
+
   <button class="btn btn-secondary" (click)="goBack()">
-    กลับหน้ารับบัตรคิว (Back)
+    กลับหน้ารับบัตรคิว
   </button>
 </div>

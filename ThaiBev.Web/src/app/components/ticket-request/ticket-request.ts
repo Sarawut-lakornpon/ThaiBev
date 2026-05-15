@@ -5,8 +5,10 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-request',
+  standalone: true,
   imports: [NgIf],
-  templateUrl: './ticket-request.html'
+  templateUrl: './ticket-request.html',
+  styleUrls: ['./ticket-request.css']
 })
 export class TicketRequest {
   private queueService = inject(QueueService);
