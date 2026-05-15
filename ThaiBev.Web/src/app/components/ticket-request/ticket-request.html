@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Queue Manager</h1>
+  <p class="subtitle">IT 05-1</p>
+  
+  <div style="margin-top: 2rem;">
+    <button class="btn btn-primary" (click)="getTicket()" [disabled]="isLoading">
+      <span *ngIf="!isLoading">รับบัตรคิว (Get Ticket)</span>
+      <span *ngIf="isLoading" class="spinner"></span>
+    </button>
+    
+    <button class="btn btn-secondary" (click)="goToClear()">
+      ล้างคิว (Clear Queue)
+    </button>
+  </div>
+</div>
