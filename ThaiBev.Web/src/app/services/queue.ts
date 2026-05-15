@@ -7,15 +7,21 @@ export interface TicketResponse {
   issuedAt: string;
 }
 
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class QueueService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5059/api/queue'; // Default Web API port
+  private apiUrl = environment.apiUrl;
 
   getTicket(): Observable<TicketResponse> {
     return this.http.post<TicketResponse>(`${this.apiUrl}/ticket`, {});
+  }
+
+  getCurrentQueue(): Observable<TicketResponse> {
+    return this.http.get<TicketResponse>(`${this.apiUrl}/current`);
   }
 
   clearQueue(): Observable<TicketResponse> {

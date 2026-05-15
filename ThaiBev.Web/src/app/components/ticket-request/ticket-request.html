@@ -1,14 +1,20 @@
-<div class="container">
-  <h1>ThaiBev Queue</h1>
+<main class="kiosk-container">
+  <header class="kiosk-header">
+    <h1>IT 05-1</h1>
+  </header>
+  
+  <section class="main-action-area">
+    <div class="primary-action">
+      <button class="btn-get-ticket" (click)="getTicket()" [disabled]="isLoading">
+        <span *ngIf="!isLoading">รับบัตรคิว</span>
+        <span *ngIf="isLoading" class="spinner"></span>
+      </button>
+    </div>
 
-  <div class="request-actions-container">
-    <button class="btn btn-primary btn-get-ticket" (click)="getTicket()" [disabled]="isLoading">
-      <span *ngIf="!isLoading">รับบัตรคิว</span>
-      <span *ngIf="isLoading" class="spinner"></span>
-    </button>
-
-    <button class="btn btn-secondary" (click)="goToClear()">
-      ล้างคิว
-    </button>
-  </div>
-</div>
+    <div class="secondary-action">
+      <button class="btn-clear-queue" (click)="goToClear()">
+        ล้างคิว
+      </button>
+    </div>
+  </section>
+</main>

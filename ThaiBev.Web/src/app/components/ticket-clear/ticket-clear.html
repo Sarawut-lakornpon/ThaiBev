@@ -1,21 +1,56 @@
-<div class="container">
-  <h1>ล้างคิว</h1>
+<main class="kiosk-container">
+  <header class="kiosk-header">
+    <h1>IT 05-3</h1>
+  </header>
+  
+  <section class="main-action-area">
 
-  <div *ngIf="clearedNumber" class="cleared-number-display">
-    {{ clearedNumber }}
-  </div>
+    <!-- Success State: After clearing -->
+    <ng-container *ngIf="clearedNumber">
+      <div class="top-action"></div>
+      <div class="center-content">
+        <div class="label-area">
+          <h2>หมายเลขคิวถูกล้างแล้ว</h2>
+        </div>
+        <div class="number-area">
+          <span class="ticket-number">{{ clearedNumber }}</span>
+        </div>
+      </div>
+      <div class="bottom-action">
+        <button class="btn-back" (click)="goBack()">
+          กลับไปหน้ารับบัตรคิว
+        </button>
+      </div>
+    </ng-container>
 
-  <div *ngIf="!clearedNumber" class="clear-actions">
-    <p class="confirm-message">คุณยืนยันที่จะล้างคิวใช่หรือไม่?</p>
-    <button class="btn btn-danger" (click)="clearQueue()" [disabled]="isLoading">
-      <span *ngIf="!isLoading">ยืนยันล้างคิว</span>
-      <span *ngIf="isLoading" class="spinner"></span>
-    </button>
-  </div>
+    <!-- Initial State: Clear button top, current queue center, back button bottom -->
+    <ng-container *ngIf="!clearedNumber">
+      <div class="top-action">
+        <button class="btn-clear" (click)="clearQueue()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">ล้างคิว</span>
+          <span *ngIf="isLoading" class="spinner"></span>
+        </button>
+      </div>
 
-  <div class="navigation-area">
-    <button class="btn btn-secondary" (click)="goBack()">
-      กลับหน้ารับบัตรคิว
-    </button>
-  </div>
-</div>
+      <div class="center-content">
+        <div class="label-area">
+          <h2>หมายเลขคิวปัจจุบัน</h2>
+        </div>
+        <div class="number-area">
+          <span *ngIf="!isLoadingCurrent" class="ticket-number">{{ currentNumber }}</span>
+          <span *ngIf="isLoadingCurrent" class="spinner-large"></span>
+        </div>
+        <div class="info-area" *ngIf="currentIssuedAt && !isLoadingCurrent">
+          <p>วันที่ : {{ currentIssuedAt | date:'dd/MM/yyyy' }} เวลา {{ currentIssuedAt | date:'HH:mm' }} น.</p>
+        </div>
+      </div>
+
+      <div class="bottom-action">
+        <button class="btn-back" (click)="goBack()">
+          กลับไปหน้ารับบัตรคิว
+        </button>
+      </div>
+    </ng-container>
+
+  </section>
+</main>

@@ -21,7 +21,7 @@ export class TicketRequest {
       next: (res) => {
         this.isLoading = false;
         this.router.navigate(['/ticket', res.ticketNumber], { 
-          queryParams: { issuedAt: res.issuedAt } 
+          state: { issuedAt: res.issuedAt } 
         });
       },
       error: (err) => {

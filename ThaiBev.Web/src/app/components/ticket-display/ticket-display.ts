@@ -17,7 +17,11 @@ export class TicketDisplay implements OnInit {
 
   ngOnInit() {
     this.ticketNumber = this.route.snapshot.paramMap.get('number') || '';
-    this.issuedAt = this.route.snapshot.queryParamMap.get('issuedAt');
+    
+    // Get issuedAt from history state (passed from TicketRequest)
+    // If accessed directly and state is missing, it will remain null
+    const navState = history.state;
+    this.issuedAt = navState?.issuedAt || null;
   }
 
   goBack() {

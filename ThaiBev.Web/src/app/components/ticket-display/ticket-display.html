@@ -1,17 +1,25 @@
-<div class="container">
-  <h1>หมายเลขคิว</h1>
+<main class="kiosk-container">
+  <header class="kiosk-header">
+    <h1>IT 05-2</h1>
+  </header>
+  
+  <section class="main-action-area">
+    <div class="label-area">
+      <h2>หมายเลขคิว</h2>
+    </div>
 
-  <div class="ticket-display-number ticket-result-number">
-    {{ ticketNumber }}
-  </div>
+    <div class="number-area">
+      <span class="ticket-number">{{ ticketNumber }}</span>
+    </div>
 
-  <div class="ticket-date" *ngIf="issuedAt">
-    วันที่ : {{ issuedAt | date:'dd/MM/yyyy' }} เวลา {{ issuedAt | date:'HH:mm' }} น.
-  </div>
+    <div class="info-area" *ngIf="issuedAt">
+      <p>วันที่ : {{ issuedAt | date:'dd/MM/yyyy' }} เวลา {{ issuedAt | date:'HH:mm' }} น.</p>
+    </div>
 
-  <div class="ticket-navigation">
-    <button class="btn btn-secondary" (click)="goBack()">
-      กลับหน้ารับบัตรคิว
-    </button>
-  </div>
-</div>
+    <div class="navigation-area">
+      <button class="btn-back" (click)="goBack()">
+        กลับไปหน้ารับบัตรคิว
+      </button>
+    </div>
+  </section>
+</main>
