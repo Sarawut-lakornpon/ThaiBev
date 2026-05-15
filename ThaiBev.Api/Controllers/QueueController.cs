@@ -21,6 +21,13 @@ public class QueueController : ControllerBase
         return Ok(new { TicketNumber = result.TicketNumber, IssuedAt = result.IssuedAt });
     }
 
+    [HttpGet("current")]
+    public async Task<IActionResult> GetCurrentQueue()
+    {
+        var result = await _queueService.GetCurrentQueueAsync();
+        return Ok(new { TicketNumber = result.TicketNumber, IssuedAt = result.IssuedAt });
+    }
+
     [HttpPost("clear")]
     public async Task<IActionResult> ClearQueue()
     {

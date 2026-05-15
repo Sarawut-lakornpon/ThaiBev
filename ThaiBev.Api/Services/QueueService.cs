@@ -47,6 +47,21 @@ public class QueueService : IQueueService
         }
     }
 
+    public async Task<TicketResult> GetCurrentQueueAsync()
+    {
+        using var scope = _scopeFactory.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+        var state = await db.QueueStates.FirstOrDefaultAsync(q => q.Id == 1);
+        if (state == null || state.CurrentSequenceNumber == -1)
+        {
+            return new TicketResult("--", DateTime.UtcNow);
+        }
+
+        var lastUpdatedUtc = DateTime.SpecifyKind(state.LastUpdatedAt, DateTimeKind.Utc);
+        return new TicketResult(FormatQueueNumber(state.CurrentSequenceNumber), lastUpdatedUtc);
+    }
+
     public async Task<string> ClearQueueAsync()
     {
         await _lock.WaitAsync();
