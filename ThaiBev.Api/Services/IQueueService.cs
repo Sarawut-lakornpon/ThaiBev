@@ -1,7 +1,9 @@
 namespace ThaiBev.Api.Services;
 
+public record TicketResult(string TicketNumber, DateTime IssuedAt);
+
 public interface IQueueService
 {
-    Task<string> GetNextTicketAsync();
+    Task<TicketResult> GetNextTicketAsync();
     Task<string> ClearQueueAsync();
 }

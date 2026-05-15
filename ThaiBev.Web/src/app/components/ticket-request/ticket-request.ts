@@ -18,7 +18,9 @@ export class TicketRequest {
     this.queueService.getTicket().subscribe({
       next: (res) => {
         this.isLoading = false;
-        this.router.navigate(['/ticket', res.ticketNumber]);
+        this.router.navigate(['/ticket', res.ticketNumber], { 
+          queryParams: { issuedAt: res.issuedAt } 
+        });
       },
       error: (err) => {
         this.isLoading = false;

@@ -13,7 +13,7 @@ public class QueueService : IQueueService
         _scopeFactory = scopeFactory;
     }
 
-    public async Task<string> GetNextTicketAsync()
+    public async Task<TicketResult> GetNextTicketAsync()
     {
         await _lock.WaitAsync();
         try
@@ -39,7 +39,7 @@ public class QueueService : IQueueService
             state.LastUpdatedAt = DateTime.UtcNow;
             await db.SaveChangesAsync();
 
-            return FormatQueueNumber(state.CurrentSequenceNumber);
+            return new TicketResult(FormatQueueNumber(state.CurrentSequenceNumber), state.LastUpdatedAt);
         }
         finally
         {

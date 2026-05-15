@@ -17,8 +17,8 @@ public class QueueController : ControllerBase
     [HttpPost("ticket")]
     public async Task<IActionResult> GetTicket()
     {
-        var ticket = await _queueService.GetNextTicketAsync();
-        return Ok(new { TicketNumber = ticket });
+        var result = await _queueService.GetNextTicketAsync();
+        return Ok(new { TicketNumber = result.TicketNumber, IssuedAt = result.IssuedAt });
     }
 
     [HttpPost("clear")]

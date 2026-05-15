@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface TicketResponse {
   ticketNumber: string;
+  issuedAt: string;
 }
 
 @Injectable({
