@@ -18,10 +18,19 @@
    ```bash
    npm install
    ```
-3. รันคำสั่ง:
-   ```bash
-   npm start
-   ```
+3. เลือกรันตามสภาพแวดล้อม (Environment):
+   - **Development (Default):**
+     ```bash
+     npm start
+     ```
+   - **Test:**
+     ```bash
+     npx ng serve --configuration=test
+     ```
+   - **Production (Local Serve):**
+     ```bash
+     npx ng serve --configuration=production
+     ```
    เข้าใช้งานได้ที่: `http://localhost:4200`
 
 ---
