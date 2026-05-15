@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TicketClear } from './ticket-clear';
+import { QueueService } from '../../services/queue';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('TicketClear', () => {
   let component: TicketClear;
@@ -8,12 +10,15 @@ describe('TicketClear', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TicketClear],
+      imports: [TicketClear, HttpClientTestingModule],
+      providers: [
+        { provide: Router, useValue: { navigate: () => {} } }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TicketClear);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

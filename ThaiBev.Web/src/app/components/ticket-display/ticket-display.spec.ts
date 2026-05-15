@@ -18,7 +18,7 @@ describe('TicketDisplay', () => {
                 get: (key: string) => (key === 'number' ? 'A5' : null)
               },
               queryParamMap: {
-                get: (key: string) => (key === 'issuedAt' ? '2026-05-15T20:00:00Z' : null)
+                get: (key: string) => (key === 'issuedAt' ? '2026-05-15T10:00:00Z' : null)
               }
             }
           }
@@ -39,6 +39,7 @@ describe('TicketDisplay', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.ticket-display-number')?.textContent).toContain('A5');
   });
+
 
   it('should display the formatted date', () => {
     const compiled = fixture.nativeElement as HTMLElement;

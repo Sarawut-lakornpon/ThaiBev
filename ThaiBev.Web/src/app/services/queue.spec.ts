@@ -1,13 +1,16 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { QueueService } from './queue';
 
-import { Queue } from './queue';
-
-describe('Queue', () => {
-  let service: Queue;
+describe('QueueService', () => {
+  let service: QueueService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Queue);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [QueueService]
+    });
+    service = TestBed.inject(QueueService);
   });
 
   it('should be created', () => {
