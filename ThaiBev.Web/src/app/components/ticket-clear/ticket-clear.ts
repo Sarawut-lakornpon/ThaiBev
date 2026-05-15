@@ -6,7 +6,8 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-ticket-clear',
   imports: [NgIf],
-  templateUrl: './ticket-clear.html'
+  templateUrl: './ticket-clear.html',
+  styleUrls: ['./ticket-clear.css']
 })
 export class TicketClear {
   private queueService = inject(QueueService);

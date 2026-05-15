@@ -1,8 +1,7 @@
 <div class="container">
   <h1>ThaiBev Queue</h1>
-  <!--<p class="subtitle">IT 05-1</p> -->
 
-  <div style="margin-top: 2rem;">
+  <div class="request-actions-container">
     <button class="btn btn-primary btn-get-ticket" (click)="getTicket()" [disabled]="isLoading">
       <span *ngIf="!isLoading">รับบัตรคิว</span>
       <span *ngIf="isLoading" class="spinner"></span>

@@ -1,20 +1,21 @@
 <div class="container">
   <h1>ล้างคิว</h1>
-  <!--<p class="subtitle">IT 05-3</p>-->
 
-  <div *ngIf="clearedNumber" class="ticket-display-number" style="color: var(--danger)">
+  <div *ngIf="clearedNumber" class="cleared-number-display">
     {{ clearedNumber }}
   </div>
 
-  <div *ngIf="!clearedNumber" style="margin-top: 2rem;">
-    <p style="margin-bottom: 2rem;">คุณยืนยันที่จะล้างคิวใช่หรือไม่?</p>
+  <div *ngIf="!clearedNumber" class="clear-actions">
+    <p class="confirm-message">คุณยืนยันที่จะล้างคิวใช่หรือไม่?</p>
     <button class="btn btn-danger" (click)="clearQueue()" [disabled]="isLoading">
       <span *ngIf="!isLoading">ยืนยันล้างคิว</span>
       <span *ngIf="isLoading" class="spinner"></span>
     </button>
   </div>
 
-  <button class="btn btn-secondary" (click)="goBack()">
-    กลับหน้ารับบัตรคิว
-  </button>
+  <div class="navigation-area">
+    <button class="btn btn-secondary" (click)="goBack()">
+      กลับหน้ารับบัตรคิว
+    </button>
+  </div>
 </div>

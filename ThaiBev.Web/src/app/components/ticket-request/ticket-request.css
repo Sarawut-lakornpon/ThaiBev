@@ -26,3 +26,7 @@
   height: 48px;
   border-width: 5px;
 }
+
+.request-actions-container {
+  margin-top: 2rem;
+}

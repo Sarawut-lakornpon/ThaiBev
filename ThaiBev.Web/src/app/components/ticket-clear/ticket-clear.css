@@ -1,0 +1,24 @@
+.cleared-number-display {
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--danger) !important;
+  -webkit-text-fill-color: var(--danger) !important;
+  margin: 2rem 0;
+  text-shadow: 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+.clear-actions {
+  margin-top: 2rem;
+}
+
+.confirm-message {
+  margin-bottom: 2rem;
+  color: var(--text-main);
+  font-size: 1.1rem;
+}
+
+.navigation-area {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
